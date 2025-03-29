@@ -552,6 +552,95 @@
             animation: pulse 3s infinite ease-in-out;
         }
     </style>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Проверяем загрузились ли иконки через 3 секунды после загрузки страницы
+    setTimeout(function() {
+        checkIconsAndReload();
+    }, 3000);
+    
+    // Функция проверки иконок
+    function checkIconsAndReload() {
+        // Список иконок для проверки
+        const icons = [
+            '/images/favicon-32x32.png',
+            '/images/favicon-16x16.png',
+            '/images/apple-touch-icon.png'
+        ];
+        
+        let iconsMissing = false;
+        
+        // Проверяем каждую иконку
+        icons.forEach(function(icon) {
+            const img = new Image();
+            img.onerror = function() {
+                console.log('Иконка не загружена: ' + icon);
+                iconsMissing = true;
+            };
+            img.src = icon;
+        });
+        
+        // Если есть проблемы с иконками, перезагружаем их
+        if (iconsMissing) {
+            console.log('Обнаружены проблемы с иконками - принудительная перезагрузка...');
+            reloadIcons();
+        }
+    }
+    
+    // Функция принудительной перезагрузки иконок
+    function reloadIcons() {
+        // Удаляем существующие линки
+        const existingLinks = document.querySelectorAll('link[rel="icon"], link[rel="apple-touch-icon"]');
+        existingLinks.forEach(function(link) {
+            link.parentNode.removeChild(link);
+        });
+        
+        // Создаем новые элементы для иконок с добавлением параметра версии
+        const version = new Date().getTime();
+        
+        const favicon32 = document.createElement('link');
+        favicon32.rel = 'icon';
+        favicon32.type = 'image/png';
+        favicon32.sizes = '32x32';
+        favicon32.href = '/images/favicon-32x32.png?v=' + version;
+        document.head.appendChild(favicon32);
+        
+        const favicon16 = document.createElement('link');
+        favicon16.rel = 'icon';
+        favicon16.type = 'image/png';
+        favicon16.sizes = '16x16';
+        favicon16.href = '/images/favicon-16x16.png?v=' + version;
+        document.head.appendChild(favicon16);
+        
+        const appleIcon = document.createElement('link');
+        appleIcon.rel = 'apple-touch-icon';
+        appleIcon.sizes = '180x180';
+        appleIcon.href = '/images/apple-touch-icon.png?v=' + version;
+        document.head.appendChild(appleIcon);
+        
+        // Дополнительная проверка через 2 секунды
+        setTimeout(function() {
+            checkIconsAndReload();
+        }, 2000);
+    }
+    
+    // Альтернативный метод проверки - через favicon API
+    function checkFaviconViaAPI() {
+        const favicon = document.querySelector('link[rel="icon"]');
+        if (favicon) {
+            const img = new Image();
+            img.onerror = function() {
+                console.log('Favicon не загружен - принудительная перезагрузка');
+                reloadIcons();
+            };
+            img.src = favicon.href;
+        }
+    }
+    
+    // Вызываем альтернативную проверку через 5 секунд
+    setTimeout(checkFaviconViaAPI, 5000);
+});
+</script>
 </head>
 <body>
     <header>
