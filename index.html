@@ -4,41 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Литературный Бункер | Тайны классической литературы</title>
-
-<!-- Favicon для GitHub Pages (оптимизированная версия) -->
-<link rel="preload" href="https://kinokapriz.github.io/litbunker/images/favicon-32x32.png" as="image" crossorigin="anonymous">
-<link rel="preload" href="https://kinokapriz.github.io/litbunker/images/favicon-16x16.png" as="image" crossorigin="anonymous">
-<link rel="preload" href="https://kinokapriz.github.io/litbunker/images/apple-touch-icon.png" as="image" crossorigin="anonymous">
-
-<link rel="shortcut icon" href="https://kinokapriz.github.io/litbunker/images/favicon-32x32.png" type="image/png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://kinokapriz.github.io/litbunker/images/favicon-32x32.png?v=2">
-<link rel="icon" type="image/png" sizes="16x16" href="https://kinokapriz.github.io/litbunker/images/favicon-16x16.png?v=2">
-<link rel="apple-touch-icon" sizes="180x180" href="https://kinokapriz.github.io/litbunker/images/apple-touch-icon.png?v=2">
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Улучшенная проверка для GitHub Pages
-    const checkIcons = () => {
-        const testIcon = new Image();
-        testIcon.src = 'https://kinokapriz.github.io/litbunker/images/favicon-32x32.png?test=' + Date.now();
-        
-        testIcon.onerror = () => {
-            console.warn('Иконки не загружаются - активируем резервный режим');
-            document.querySelectorAll('link[rel*="icon"]').forEach(link => link.remove());
+    
+    <!-- Meta Description and Keywords -->
+    <meta name="description" content="Литературный Бункер — тайны классической литературы. Альтернативные трактовки, скрытые смыслы и запретные тексты для истинных ценителей.">
+    <meta name="keywords" content="классическая литература, тайны литературы, запретные тексты, альтернативные трактовки, Литературный Бункер">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://kinokapriz.github.io/litbunker/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Литературный Бункер | Тайны классической литературы">
+    <meta property="og:description" content="Альтернативные трактовки классики, скрытые смыслы, зашифрованные послания и запретные тексты.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kinokapriz.github.io/litbunker/">
+    <!-- Замените путь на изображение, которое хотите использовать для предпросмотра -->
+    <meta property="og:image" content="https://kinokapriz.github.io/litbunker/images/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Литературный Бункер | Тайны классической литературы">
+    <meta name="twitter:description" content="Откройте скрытые смыслы и запретные тексты классики вместе с нами.">
+    <meta name="twitter:image" content="https://kinokapriz.github.io/litbunker/images/og-image.jpg">
+    
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://kinokapriz.github.io/litbunker/",
+      "name": "Литературный Бункер",
+      "description": "Тайны классической литературы, раскрытые с новой стороны: запретные тексты, альтернативные трактовки, скрытые смыслы.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Литературный Бункер"
+      }
+    }
+    </script>
+    
+    <!-- Favicon для GitHub Pages (оптимизированная версия) -->
+    <link rel="preload" href="https://kinokapriz.github.io/litbunker/images/favicon-32x32.png" as="image" crossorigin="anonymous">
+    <link rel="preload" href="https://kinokapriz.github.io/litbunker/images/favicon-16x16.png" as="image" crossorigin="anonymous">
+    <link rel="preload" href="https://kinokapriz.github.io/litbunker/images/apple-touch-icon.png" as="image" crossorigin="anonymous">
+    
+    <link rel="shortcut icon" href="https://kinokapriz.github.io/litbunker/images/favicon-32x32.png" type="image/png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://kinokapriz.github.io/litbunker/images/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://kinokapriz.github.io/litbunker/images/favicon-16x16.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://kinokapriz.github.io/litbunker/images/apple-touch-icon.png?v=2">
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Улучшенная проверка для GitHub Pages
+        const checkIcons = () => {
+            const testIcon = new Image();
+            testIcon.src = 'https://kinokapriz.github.io/litbunker/images/favicon-32x32.png?test=' + Date.now();
             
-            // Абсолютные пути как последнее средство
-            const fallbackIcon = document.createElement('link');
-            fallbackIcon.rel = 'icon';
-            fallbackIcon.href = 'https://kinokapriz.github.io/litbunker/images/favicon-32x32.png?fallback=' + Date.now();
-            document.head.appendChild(fallbackIcon);
+            testIcon.onerror = () => {
+                console.warn('Иконки не загружаются - активируем резервный режим');
+                document.querySelectorAll('link[rel*="icon"]').forEach(link => link.remove());
+                
+                // Абсолютные пути как последнее средство
+                const fallbackIcon = document.createElement('link');
+                fallbackIcon.rel = 'icon';
+                fallbackIcon.href = 'https://kinokapriz.github.io/litbunker/images/favicon-32x32.png?fallback=' + Date.now();
+                document.head.appendChild(fallbackIcon);
+            };
         };
-    };
-
-    // Проверка через 2 и 5 секунд
-    setTimeout(checkIcons, 2000);
-    setTimeout(checkIcons, 5000);
-});
-</script>
+    
+        // Проверка через 2 и 5 секунд
+        setTimeout(checkIcons, 2000);
+        setTimeout(checkIcons, 5000);
+    });
+    </script>
     <style>
         :root {
             --neon-blue: #0ff0fc;
@@ -581,8 +618,6 @@ document.addEventListener('DOMContentLoaded', function() {
             animation: pulse 3s infinite ease-in-out;
         }
     </style>
-   
-</script>
 </head>
 <body>
     <header>
@@ -671,3 +706,4 @@ document.addEventListener('DOMContentLoaded', function() {
     </footer>
 </body>
 </html>
+
